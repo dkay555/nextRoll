@@ -121,17 +121,16 @@ export default function Home() {
                   Keine Werte ausgewählt
                 </div>
               ) : (
-                <ul className="space-y-2">
+                <div className="grid grid-cols-5 gap-2">
                   {valueList.map((value, index) => (
-                    <li
+                    <div
                       key={index}
-                      className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                      className="p-2 bg-gray-50 rounded-lg text-center"
                     >
-                      <span className="text-gray-700 font-medium">{value}</span>
-                      <span className="text-xs text-gray-500">#{index + 1}</span>
-                    </li>
+                      <span className="text-gray-700 font-medium text-sm">{value}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               )}
             </div>
           </CardContent>
