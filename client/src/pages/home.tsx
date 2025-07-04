@@ -31,8 +31,7 @@ export default function Home() {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Value Tracker</h1>
-          <p className="text-gray-600">Wählen Sie Werte aus und verwalten Sie Ihre Liste</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">Roll Tracker</h1>
         </div>
 
         {/* Toggle Switch */}
@@ -58,7 +57,7 @@ export default function Home() {
         <Card className="mb-6">
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-              Werte auswählen
+              Multiplier
             </h2>
             <div className="max-w-md mx-auto">
               <div className="grid grid-cols-3 gap-3">
@@ -94,7 +93,7 @@ export default function Home() {
             {/* Next Roll Display */}
             {valueList.length > 0 && (
               <div className="mb-4 text-center">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">Next Roll</h3>
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Multiplier</h3>
                 <div className="flex justify-center items-center space-x-2">
                   {/* Current (next) value - larger */}
                   <div className="px-3 py-2 bg-blue-100 text-blue-800 rounded-lg font-bold text-lg">
@@ -138,12 +137,12 @@ export default function Home() {
         <Card>
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-              Aktuelle Liste
+              Mapped Multipliers
             </h2>
             <div className="max-h-64 overflow-y-auto">
               {valueList.length === 0 ? (
                 <div className="text-center text-gray-500 text-sm mt-4">
-                  Keine Werte ausgewählt
+                  No saved rolls yet.
                 </div>
               ) : (
                 <div className="grid grid-cols-5 gap-2">
