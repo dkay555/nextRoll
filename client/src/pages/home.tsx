@@ -60,21 +60,32 @@ export default function Home() {
             <h2 className="text-lg font-semibold text-gray-900 mb-4 text-center">
               Werte auswählen
             </h2>
-            <div className="grid grid-cols-4 gap-3 max-w-md mx-auto">
-              {currentButtons.map((value) => (
-                <Button
-                  key={value}
-                  onClick={() => addValue(value)}
-                  variant={value === highlightValue ? "default" : "outline"}
-                  className={`px-4 py-3 rounded-lg font-medium text-sm transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105 active:scale-95 ${
-                    value === highlightValue
-                      ? "bg-emerald-500 text-white hover:bg-emerald-600"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  x{value}
-                </Button>
-              ))}
+            <div className="max-w-md mx-auto">
+              <div className="grid grid-cols-3 gap-3">
+                {currentButtons.map((value, index) => {
+                  // First button (x1) takes 2 columns
+                  const isFirstButton = index === 0;
+                  // Last button (x100 for Non-HR, x1000 for HR) takes 2 columns
+                  const isLastButton = index === currentButtons.length - 1;
+                  
+                  return (
+                    <Button
+                      key={value}
+                      onClick={() => addValue(value)}
+                      variant={value === highlightValue ? "default" : "outline"}
+                      className={`px-4 py-3 rounded-lg font-medium text-sm transition-all duration-200 shadow-sm hover:shadow-md transform hover:scale-105 active:scale-95 ${
+                        value === highlightValue
+                          ? "bg-emerald-500 text-white hover:bg-emerald-600"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      } ${
+                        isFirstButton || isLastButton ? "col-span-2" : ""
+                      }`}
+                    >
+                      x{value}
+                    </Button>
+                  );
+                })}
+              </div>
             </div>
           </CardContent>
         </Card>
