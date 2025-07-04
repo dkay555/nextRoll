@@ -88,9 +88,34 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        {/* Action Buttons */}
+        {/* Action Buttons and Next Roll Preview */}
         <Card className="mb-6">
           <CardContent className="p-6">
+            {/* Next Roll Display */}
+            {valueList.length > 0 && (
+              <div className="mb-4 text-center">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Next Roll</h3>
+                <div className="flex justify-center items-center space-x-2">
+                  {/* Current (next) value - larger */}
+                  <div className="px-3 py-2 bg-blue-100 text-blue-800 rounded-lg font-bold text-lg">
+                    {valueList[0]}
+                  </div>
+                  {/* Following 2 values - smaller */}
+                  {valueList.length > 1 && (
+                    <div className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-sm">
+                      {valueList[1]}
+                    </div>
+                  )}
+                  {valueList.length > 2 && (
+                    <div className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-sm">
+                      {valueList[2]}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+            
+            {/* Action Buttons */}
             <div className="flex justify-center space-x-4">
               <Button
                 onClick={removeFirstValue}
