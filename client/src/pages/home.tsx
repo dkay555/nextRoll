@@ -63,10 +63,8 @@ export default function Home() {
             <div className="max-w-md mx-auto">
               <div className="grid grid-cols-3 gap-3">
                 {currentButtons.map((value, index) => {
-                  // First button (x1) takes 2 columns
-                  const isFirstButton = index === 0;
-                  // Last button (x100 for Non-HR, x1000 for HR) takes 2 columns
-                  const isLastButton = index === currentButtons.length - 1;
+                  // Only x100 in Non-HR mode takes 2 columns
+                  const shouldSpanTwo = !isHRMode && value === 100;
                   
                   return (
                     <Button
@@ -78,7 +76,7 @@ export default function Home() {
                           ? "bg-emerald-500 text-white hover:bg-emerald-600"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       } ${
-                        isFirstButton || isLastButton ? "col-span-2" : ""
+                        shouldSpanTwo ? "col-span-2" : ""
                       }`}
                     >
                       x{value}
